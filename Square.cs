@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
 
 namespace Lab5_2sem
@@ -7,6 +8,12 @@ namespace Lab5_2sem
     internal class Square : Shape
     {
         double sideLength;
+
+        public Square(double sideLength, Vector2 position) : base(position)
+        {
+            if (sideLength <= 0) throw new ArgumentException("Side length must be greater than zero.");
+            this.sideLength = sideLength;
+        }
         public override void DrawBlack(Graphics g)
         {
             g.DrawRectangle(Pens.Black, (float)position.X, (float)position.Y, (float)sideLength, (float)sideLength);
@@ -15,6 +22,6 @@ namespace Lab5_2sem
         {
             g.DrawRectangle(Pens.White, (float)position.X, (float)position.Y, (float)sideLength, (float)sideLength);
         }
-    {
+    
     }
 }
